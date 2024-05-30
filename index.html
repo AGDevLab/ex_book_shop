@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bookshop.css" />
   </head>
-  <body>
+  <body onload="onInit()">
     <title>Book Shop</title>
     <h1>Book Shop</h1>
 
     <input type="text" placeholder="Book name" />
-    <button>Add a book</button>
+    <button onclick="onAddBook()">Add a book</button>
 
     <ul>
       <li>
         <span>Book 1</span>
-        <button>x</button>
+        <button onclick="onRemoveBook('bg4J78')">x</button>
       </li>
     </ul>
     <ul>
       <li>
         <span>Book 2</span>
-        <button>x</button>
+        <button onclick="onRemoveBook('bg4J78')">x</button>
       </li>
     </ul>
     <ul>
       <li>
         <span class="marked">Book 3</span>
-        <button>x</button>
+        <button onclick="onRemoveBook('bg4J78')">x</button>
       </li>
     </ul>
     <script src="js/bookshop.js"></script>
