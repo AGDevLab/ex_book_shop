@@ -9,27 +9,48 @@
     <title>Book Shop</title>
     <h1>Book Shop</h1>
 
-    <input type="text" placeholder="Book name" />
-    <button onclick="onAddBook()">Add a book</button>
-
-    <ul>
-      <li>
-        <span>Book 1</span>
-        <button onclick="onRemoveBook('bg4J78')">x</button>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <span>Book 2</span>
-        <button onclick="onRemoveBook('bg4J78')">x</button>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <span class="marked">Book 3</span>
-        <button onclick="onRemoveBook('bg4J78')">x</button>
-      </li>
-    </ul>
+    <!-- <input type="text" placeholder="Book name" />
+    <button onclick="onAddBook()">Add a book</button> -->
+    <div>
+      <table class="bookshelf">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="books">
+          <!-- <tr>
+            <td class="name">The adventures of Lori Ipsi</td>
+            <td>120</td>
+            <td>
+              <button onclick="getBooks(101)">Read</button
+              ><button onclick="onUpdateBook()">update</button
+              ><button onclick="onRemoveBook()">delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="name">World Atlas</td>
+            <td>300</td>
+            <td>
+              <button onclick="getBooks(102)">Read</button
+              ><button onclick="onUpdateBook()">update</button
+              ><button onclick="onRemoveBook()">delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="name">Zorba the Greek</td>
+            <td>87</td>
+            <td>
+              <button onclick="getBooks(103)">Read</button
+              ><button onclick="onUpdateBook()">update</button
+              ><button onclick="onRemoveBook()">delete</button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
     <script src="js/bookshop.js"></script>
   </body>
 </html>
