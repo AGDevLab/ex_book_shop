@@ -1,28 +1,8 @@
 'use strict'
 
-var gBooks = [
-  {
-    id: 'bg4J78',
-    title: 'crashingthrough',
-    price: 120,
-    imgUrl: 'crashingthrough.jpg',
-  },
-  {
-    id: 'bg4J79',
-    title: 'shadowdivers',
-    price: 300,
-    imgUrl: 'shadowdivers.jpg',
-  },
-  {
-    id: 'bg4J80',
-    title: 'submerged',
-    price: 87,
-    imgUrl: 'submerged.jpg',
-  },
-]
+var gBooks = _createBooks('bookshelf')
 
-loadFromStorage('bookshelf')
-saveToStorage('bookshelf', gBooks)
+// loadFromStorage('bookshelf')
 
 function getBooks(bookId) {
   const book = gBooks.find((book) => book.id === bookId)
@@ -54,7 +34,14 @@ function _createBook(txt) {
   }
 }
 
-function _createBooks() {
+function _createBooks(key) {
+  const dataStr = loadFromStorage(key)
+  //   console.log(dataStr)
+
+  const data = JSON.parse(dataStr)
+  //   console.log(data)
+  return data
+
   return [
     {
       id: 'bg4J78',
@@ -75,4 +62,11 @@ function _createBooks() {
       imgUrl: 'submerged.jpg',
     },
   ]
+}
+_saveBooks()
+
+function _saveBooks() {
+  const tempStr = loadFromStorage('bookshelf')
+  const tempData = JSON.parse(tempStr)
+  console.log(tempData)
 }

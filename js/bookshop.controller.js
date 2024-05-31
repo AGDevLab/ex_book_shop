@@ -3,6 +3,8 @@
 function onInit() {
   console.log('onInit')
   renderBooks()
+  // clearStorage('bookshelf')
+  // saveToStorage('bookshelf', gBooks)
 }
 // Render DOM
 function renderBooks() {

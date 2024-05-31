@@ -8,5 +8,10 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
   const elData = localStorage.getItem(key)
   JSON.parse(elData)
-  console.log(elData)
+  //   console.log(elData)
+  return elData
+}
+
+function clearStorage(key) {
+  localStorage.removeItem(key)
 }
