@@ -3,21 +3,21 @@
 var gBooks = [
   {
     id: 'bg4J78',
-    title: 'The adventures of Lori Ipsi',
+    title: 'crashingthrough',
     price: 120,
-    imgUrl: 'lori-ipsi.jpg',
+    imgUrl: 'crashingthrough.jpg',
   },
   {
     id: 'bg4J79',
-    title: 'World Atlas',
+    title: 'shadowdivers',
     price: 300,
-    imgUrl: 'worldatlas.jpg',
+    imgUrl: 'shadowdivers.jpg',
   },
   {
     id: 'bg4J80',
-    title: 'Zorba the Greek',
+    title: 'submerged',
     price: 87,
-    imgUrl: 'zorba.jpg',
+    imgUrl: 'submerged.jpg',
   },
 ]
 
@@ -31,7 +31,8 @@ function addBook(txt) {
     id: `${Date.now() % 1000}`,
     title: txt,
     price: '',
-    imgUrl: `${txt}.jpg`,
+    imgUrl: `returnnull.jpg`,
+    // imgUrl: `${txt}.jpg`,
   }
   gBooks.unshift(book)
 }

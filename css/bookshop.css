@@ -31,38 +31,110 @@ table,
 th,
 td {
   border: 1px solid;
+  border-collapse: collapse;
 }
 
-/* table {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: 3px 10px;
-  cursor: pointer;
-} */
+thead {
+  background-color: gray;
+}
 
-/* th {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-} */
-
-/* td {
-  display: flex;
-  padding: 3px 10px;
-  cursor: pointer;
-} */
+tbody tr:nth-child(even) {
+  background-color: lightgray;
+}
 
 .modal {
   margin-block-start: 3vh;
   background-color: aquamarine;
 }
 
-.hidden {
-  display: none;
+img {
+  width: 200px;
 }
 
 .marked {
   text-decoration: line-through;
 }
+
+.btnUpdate {
+  background-color: yellow;
+}
+
+.btnRead {
+  background-color: skyblue;
+}
+
+.btnDelete {
+  background-color: green;
+}
+
+.title {
+  min-width: 40vw;
+  /* background-color: pink; */
+}
+
+.price {
+  text-align: center;
+  /* background-color: peachpuff; */
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  min-width: 70px;
+}
+
+/* .menu { */
+/* display: flex; */
+/* justify-content: space-around; */
+
+/* .books tr:nth-child(even) {
+  background-color: lightgray;
+} */
+
+/* align-items: center; */
+
+/* margin-inline: 5px;
+  gap: 5px; */
+
+/* border: none; */
+/* } */
+
+/* .hidden {
+  display: none;
+} */
+
+/* .books tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+/* .bookshelf :nth-child(odd) {
+  background-color: grey;
+} */
+
+/* table background */
+/* table { */
+/* background-color: chartreuse; */
+/* display: flex; */
+/* align-items: center; */
+/* justify-content: space-between; */
+/* flex-direction: column; */
+/* padding: 3px 10px; */
+/* cursor: pointer; */
+/* } */
+
+/* table headers */
+/* th { */
+/* background-color: orangered; */
+/* display: flex; */
+/* justify-content: space-around; */
+/* align-items: center; */
+/* } */
+
+/* .menu background td { */
+/* background-color: orange; */
+/* display: flex; */
+/* padding: 3px 10px; */
+/* cursor: pointer; */
+/* } */

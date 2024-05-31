@@ -9,14 +9,14 @@ function renderBooks() {
   const elBookShelf = document.querySelector('.books')
   const strBookHtmls = gBooks.map(
     (book) => `<tr> 
-            <td class="name">${book.title}</td>
-            <td>${book.price}</td>
-            <td>
-              <button onclick="onGetBook('${book.id}')
+            <td class="title">${book.title}</td>
+            <td class="price">${book.price}</td>
+            <td class="menu">
+              <button class='btnRead'  onclick="onGetBook('${book.id}')
               
               ">Read</button
-              ><button onclick="onUpdateBook('${book.id}')">update</button
-              ><button onclick="onRemoveBook('${book.id}')">delete</button>
+              ><button class='btnUpdate'  onclick="onUpdateBook('${book.id}')">update</button
+              ><button class='btnDelete'  onclick="onRemoveBook('${book.id}')">delete</button>
             </td>
           </tr>`
   )
@@ -27,9 +27,12 @@ function renderBooks() {
 function onGetBook(bookId) {
   const elBook = getBooks(bookId)
   const elModal = document.querySelector('.modal')
-  // elModal.classList.remove('hidden')
   elModal.showModal()
-  const elPre = (document.querySelector('pre').innerText = elBook)
+  const elPre = document.querySelector('pre')
+  elPre.innerText = elBook
+  const imgFileName = JSON.parse(elBook)
+  const elBookCover = document.querySelector('.modalImg')
+  elBookCover.innerHTML = `<img src="assets/img/${imgFileName.imgUrl}" alt="" />`
 }
 
 // function onCloseModal() {
