@@ -25,7 +25,7 @@ function onInit() {
   console.log('onInit')
   renderBooks()
 }
-
+// Render DOM
 function renderBooks() {
   const elBookShelf = document.querySelector('.books')
   const strBookHtmls = gBooks.map(
@@ -34,32 +34,44 @@ function renderBooks() {
             <td>${book.price}</td>
             <td>
               <button onclick="getBooks('${book.id}')">Read</button
-              ><button onclick="onUpdateBook()">update</button
-              ><button onclick="onRemoveBook()">delete</button>
+              ><button onclick="onUpdateBook('${book.id}')">update</button
+              ><button onclick="onRemoveBook('${book.id}')">delete</button>
             </td>
           </tr>`
   )
   elBookShelf.innerHTML = strBookHtmls.join('')
 }
 
+// DONE: read book from model
 function getBooks(bookId) {
   console.log('reading')
-  console.log(bookId)
+  const book = gBooks.find((book) => book.id === bookId)
+  console.log(book)
+}
+// DONE: remove book from bookshelf (MODEL + DOM)
+function onRemoveBook(bookId) {
+  // MODEL
+  const idx = gBooks.findIndex((book) => book.id === bookId)
+  gBooks.splice(idx, 1)
+
+  // DOM
+  renderBooks()
 }
 
-function onRemoveBook() {
-  console.log('book removed')
+function removeBook() {}
+
+// DONE: change price of book (MODEL + DOM)
+function onUpdateBook(bookId) {
+  // MODEL
+  var priceChange = +prompt('please choose a price')
+  const idx = gBooks.findIndex((book) => book.id === bookId)
+  gBooks[idx].price = priceChange
+
+  // DOM
+  renderBooks()
 }
 
-function removeBook() {
-  console.log('removing')
-}
-
-function onUpdateBook() {
-  console.log('updating')
-}
-
-function updatePrice() {}
+function updatePrice(bookPrice) {}
 
 function onAddBook() {
   console.log('Adding book')
