@@ -1,26 +1,5 @@
 'use strict'
 
-var gBooks = [
-  {
-    id: 'bg4J78',
-    title: 'The adventures of Lori Ipsi',
-    price: 120,
-    imgUrl: 'lori-ipsi.jpg',
-  },
-  {
-    id: 'bg4J79',
-    title: 'World Atlas',
-    price: 300,
-    imgUrl: 'worldatlas.jpg',
-  },
-  {
-    id: 'bg4J80',
-    title: 'Zorba the Greek',
-    price: 87,
-    imgUrl: 'zorba.jpg',
-  },
-]
-
 function onInit() {
   console.log('onInit')
   renderBooks()
@@ -33,7 +12,9 @@ function renderBooks() {
             <td class="name">${book.title}</td>
             <td>${book.price}</td>
             <td>
-              <button onclick="getBooks('${book.id}')">Read</button
+              <button onclick="onGetBook('${book.id}')
+              
+              ">Read</button
               ><button onclick="onUpdateBook('${book.id}')">update</button
               ><button onclick="onRemoveBook('${book.id}')">delete</button>
             </td>
@@ -43,50 +24,37 @@ function renderBooks() {
 }
 
 // DONE: read book from model
-function getBooks(bookId) {
-  console.log('reading')
-  const book = gBooks.find((book) => book.id === bookId)
-  console.log(book)
+function onGetBook(bookId) {
+  getBooks(bookId)
 }
+
 // DONE: remove book from bookshelf (MODEL + DOM)
 function onRemoveBook(bookId) {
   // MODEL
-  const idx = gBooks.findIndex((book) => book.id === bookId)
-  gBooks.splice(idx, 1)
+  removeBook(bookId)
 
   // DOM
   renderBooks()
 }
-
-function removeBook() {}
 
 // DONE: change price of book (MODEL + DOM)
 function onUpdateBook(bookId) {
   // MODEL
-  var priceChange = +prompt('please choose a price')
-  const idx = gBooks.findIndex((book) => book.id === bookId)
-  gBooks[idx].price = priceChange
+  updatePrice(bookId)
 
   // DOM
   renderBooks()
 }
-
-function updatePrice(bookPrice) {}
 
 // DONE: add a new book (MODEL + DOM)
 function onAddBook() {
   // MODEL
   var elNewBook = document.querySelector('input')
-  const txt = elNewBook.value
-  const book = {
-    id: `${Date.now() % 1000}`,
-    title: txt,
-    price: '',
-    imgUrl: `${txt}.jpg`,
-  }
-  gBooks.unshift(book)
+  const addBookBox = elNewBook.value
+  addBook(addBookBox)
 
   // DOM
+  elNewBook.value = ''
   renderBooks()
 }
 
