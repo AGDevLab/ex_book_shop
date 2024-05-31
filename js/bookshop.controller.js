@@ -48,6 +48,8 @@ function onRemoveBook(bookId) {
 
   // DOM
   renderBooks()
+
+  // Local Storage
 }
 
 // DONE: change price of book (MODEL + DOM)
