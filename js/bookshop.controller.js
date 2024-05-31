@@ -25,7 +25,15 @@ function renderBooks() {
 
 // DONE: read book from model
 function onGetBook(bookId) {
-  getBooks(bookId)
+  const elBook = getBooks(bookId)
+  const elModal = document.querySelector('.modal')
+  elModal.classList.remove('hidden')
+  const elPre = (document.querySelector('pre').innerText = elBook)
+}
+
+function onCloseModal() {
+  const elModal = document.querySelector('.modal')
+  elModal.classList.add('hidden')
 }
 
 // DONE: remove book from bookshelf (MODEL + DOM)
@@ -47,7 +55,8 @@ function onUpdateBook(bookId) {
 }
 
 // DONE: add a new book (MODEL + DOM)
-function onAddBook() {
+function onAddBook(ev) {
+  ev.preventDefault()
   // MODEL
   var elNewBook = document.querySelector('input')
   const addBookBox = elNewBook.value

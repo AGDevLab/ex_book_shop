@@ -7,26 +7,38 @@
   </head>
   <body onload="onInit()">
     <title>Book Shop</title>
-    <h1>Book Shop</h1>
+    <header>
+      <h1>Book Shop</h1>
+    </header>
+    <main>
+      <form onsubmit="onAddBook(event)">
+        <input type="text" placeholder="Book name" />
+        <button>Add a book</button>
+      </form>
 
-    <div>
-      <table class="bookshelf">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-          <tr>
-            <!-- <th> -->
-            <input type="text" placeholder="Book name" />
-            <button onclick="onAddBook()">Add a book</button>
-            <!-- </th> -->
-          </tr>
-        </thead>
-        <tbody class="books"></tbody>
-      </table>
-    </div>
+      <div>
+        <table class="bookshelf">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+            <!-- <tr>
+  
+</tr> -->
+          </thead>
+          <tbody class="books"></tbody>
+        </table>
+      </div>
+      <div class="modal hidden">
+        <pre>pre placeholder</pre>
+        <button onclick="onCloseModal()">X</button>
+      </div>
+    </main>
+
+    <footer>placeholder text</footer>
+
     <script src="js/services/bookshop.service.js"></script>
     <script src="js/bookshop.controller.js"></script>
   </body>
