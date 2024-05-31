@@ -73,8 +73,21 @@ function onUpdateBook(bookId) {
 
 function updatePrice(bookPrice) {}
 
+// DONE: add a new book (MODEL + DOM)
 function onAddBook() {
-  console.log('Adding book')
+  // MODEL
+  var elNewBook = document.querySelector('input')
+  const txt = elNewBook.value
+  const book = {
+    id: `${Date.now() % 1000}`,
+    title: txt,
+    price: '',
+    imgUrl: `${txt}.jpg`,
+  }
+  gBooks.unshift(book)
+
+  // DOM
+  renderBooks()
 }
 
 // function renderTodos() {
