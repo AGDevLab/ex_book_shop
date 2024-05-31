@@ -23,7 +23,7 @@ var gBooks = [
 
 function getBooks(bookId) {
   const book = gBooks.find((book) => book.id === bookId)
-  return JSON.stringify(book)
+  return JSON.stringify(book, null, 2)
 }
 
 function addBook(txt) {

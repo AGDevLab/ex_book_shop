@@ -27,16 +27,18 @@ function renderBooks() {
 function onGetBook(bookId) {
   const elBook = getBooks(bookId)
   const elModal = document.querySelector('.modal')
-  elModal.classList.remove('hidden')
+  // elModal.classList.remove('hidden')
+  elModal.showModal()
   const elPre = (document.querySelector('pre').innerText = elBook)
 }
 
-function onCloseModal() {
-  const elModal = document.querySelector('.modal')
-  elModal.classList.add('hidden')
-}
+// function onCloseModal() {
+//   const elModal = document.querySelector('.modal')
+//   elModal.close()
+// }
 
 // DONE: remove book from bookshelf (MODEL + DOM)
+
 function onRemoveBook(bookId) {
   // MODEL
   removeBook(bookId)
