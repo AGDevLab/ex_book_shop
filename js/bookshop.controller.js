@@ -64,8 +64,8 @@ function onGetBook(bookId) {
   const elModal = document.querySelector('.modal')
   elModal.showModal()
   const elPre = document.querySelector('pre')
-  elPre.innerText = elBook
   const imgFileName = JSON.parse(elBook)
+  elPre.innerText = imgFileName.title
   const elBookCover = document.querySelector('.modalImg')
   elBookCover.innerHTML = `<img src="assets/img/${imgFileName.imgUrl}" alt="" />`
 }
