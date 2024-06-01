@@ -66,13 +66,11 @@ function onUpdateBook(bookId) {
 
 function onInputHandler(event) {
   const typeStr = event.target.value
-  gBooks = gBooks.filter((book) => book.title.startsWith(typeStr))
-  renderBooks()
-}
+  const matchedBook = gBooks.filter((book) => book.title.startsWith(typeStr))
+  console.log(matchedBook)
 
-// function onTypeSearch(ev) {
-//   console.log(ev)
-// }
+  // renderBooks()
+}
 
 // DONE: add multiple button support (MODEL + DOM)
 function onSubmitHandler(event) {
