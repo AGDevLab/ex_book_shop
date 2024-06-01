@@ -101,7 +101,7 @@ function onSubmitHandler(event) {
 
 function onAddBook() {
   const bookName = document.getElementById('bookName').value
-  console.log('Add book:', bookName)
+  if (!bookName) return
   var elNewBook = document.querySelector('input')
   const addBookBox = elNewBook.value
   addBook(addBookBox)

@@ -78,7 +78,7 @@ function _createBook(txt) {
   return {
     id: makeId(),
     title: txt,
-    price: '',
+    price: '1',
     // price: `${findBookByName(txt).price}`,
     imgUrl: `returnnull.jpg`,
   }
