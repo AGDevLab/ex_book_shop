@@ -1,8 +1,7 @@
 'use strict'
 
-var gBooks = _createBooks('bookshelf')
-
 // loadFromStorage('bookshelf')
+var gBooks = _createBooks('bookshelf')
 
 function getBooks(bookId) {
   const book = getBook(bookId)
@@ -53,10 +52,10 @@ function _createBook(txt) {
 
 function _createBooks(key) {
   const dataStr = loadFromStorage(key)
-  //   console.log(dataStr)
+  console.log(dataStr)
 
   const data = JSON.parse(dataStr)
-  //   console.log(data)
+  console.log(data)
   return data
 
   return [
