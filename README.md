@@ -1,1 +1,1 @@
-Book Shop - CRUDL Exercise MVC
+Book Shop JS Ex - CRUDL Exercise MVC, full JS functionality, very basic CSS for visbility
