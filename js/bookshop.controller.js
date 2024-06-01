@@ -2,7 +2,7 @@
 
 function onInit() {
   console.log('onInit')
-  // gBooks = _createBooks('bookshelf')
+  gBooks = loadOrCreateBooks()
   renderBooks()
   onRenderStats(gBooks)
   // clearStorage('bookshelf')
@@ -27,6 +27,37 @@ function renderBooks() {
   elBookShelf.innerHTML = strBookHtmls.join('')
 }
 
+function loadOrCreateBooks() {
+  var storedBooks = loadFromStorage('bookshelf')
+  if (storedBooks) {
+    return JSON.parse(storedBooks)
+  } else {
+    const defaultBooks = [
+      {
+        id: 'bg4J78',
+        title: 'crashingthrough',
+        price: 120,
+        imgUrl: 'crashingthrough.jpg',
+      },
+      {
+        id: 'bg4J79',
+        title: 'shadowdivers',
+        price: 300,
+        imgUrl: 'shadowdivers.jpg',
+      },
+      {
+        id: 'bg4J80',
+        title: 'submerged',
+        price: 87,
+        imgUrl: 'submerged.jpg',
+      },
+    ]
+
+    saveToStorage('bookshelf', defaultBooks)
+    return defaultBooks
+  }
+}
+
 // DONE: read book from model
 function onGetBook(bookId) {
   const elBook = getBooks(bookId)
@@ -39,13 +70,7 @@ function onGetBook(bookId) {
   elBookCover.innerHTML = `<img src="assets/img/${imgFileName.imgUrl}" alt="" />`
 }
 
-// function onCloseModal() {
-//   const elModal = document.querySelector('.modal')
-//   elModal.close()
-// }
-
 // DONE: remove book from bookshelf (MODEL + DOM)
-
 function onRemoveBook(bookId) {
   // MODEL
   removeBook(bookId)
@@ -122,8 +147,8 @@ function onAddBook() {
   const bookName = document.getElementById('bookName').value
   if (!bookName) return
   var elNewBook = document.querySelector('input')
-  const addBookBox = elNewBook.value
-  addBook(addBookBox)
+  // const addBookBox = elNewBook.value
+  addBook(bookName)
 
   // DOM
   elNewBook.value = ''
