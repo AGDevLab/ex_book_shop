@@ -22,7 +22,7 @@ var gBooks = _createBooks('bookshelf')
 //     imgUrl: 'submerged.jpg',
 //   },
 // ]
-console.log(gBooks)
+// console.log(gBooks)
 
 function getBooks(bookId) {
   const book = getBook(bookId)
