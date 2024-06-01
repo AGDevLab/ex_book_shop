@@ -124,3 +124,47 @@ function _readBooks() {
   const tempData = JSON.parse(tempStr)
   console.log(tempData)
 }
+
+function getTotalbookCount() {
+  return gBooks.length
+}
+
+function updateStats(books) {
+  const stats = countBooksByPrice(books)
+  const elStatsFooter = document.querySelector('footer')
+  const elStatTotal = elStatsFooter.querySelector('.total')
+  const elStatExp = elStatsFooter.querySelector('.expensive')
+  const elStatAvg = elStatsFooter.querySelector('.average')
+  const elStatChp = elStatsFooter.querySelector('.cheap')
+  const elStatNrd = elStatsFooter.querySelector('.notReady')
+
+  elStatTotal.innerText = gBooks.length
+  elStatExp.innerText = stats.expensive
+  elStatAvg.innerText = stats.average
+  elStatChp.innerText = stats.cheap
+  elStatNrd.innerText = stats.notReady
+}
+
+function countBooksByPrice(books) {
+  const count = {
+    expensive: 0,
+    average: 0,
+    cheap: 0,
+    notReady: 0,
+  }
+
+  books.forEach((book) => {
+    const price = book.price
+    if (price >= 200) {
+      count.expensive++
+    } else if (price > 80) {
+      count.average++
+    } else if (price > 1) {
+      count.cheap++
+    } else if (price > 0) {
+      count.notReady++
+    }
+  })
+
+  return count
+}

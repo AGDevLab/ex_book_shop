@@ -4,6 +4,7 @@ function onInit() {
   console.log('onInit')
   // gBooks = _createBooks('bookshelf')
   renderBooks()
+  onRenderStats(gBooks)
   // clearStorage('bookshelf')
   // saveToStorage('bookshelf', gBooks)
 }
@@ -55,7 +56,8 @@ function onRemoveBook(bookId) {
   // MODAL
   onAction('removeBook')
 
-  // Local Storage
+  // STATS
+  onRenderStats(gBooks)
 }
 
 // DONE: change price of book (MODEL + DOM)
@@ -68,6 +70,9 @@ function onUpdateBook(bookId) {
 
   // MODAL msg
   onAction('updateBook')
+
+  // STATS
+  onRenderStats(gBooks)
 }
 
 function onInputHandler(event) {
@@ -109,13 +114,22 @@ function onAddBook() {
   // DOM
   elNewBook.value = ''
   renderBooks()
+
+  // MODAL
   onAction('addBook')
+
+  // STATS
+  onRenderStats(gBooks)
 }
 
 function onSearchBook() {
   searchBook()
 
   renderBooks()
+}
+
+function onRenderStats(books) {
+  updateStats(books)
 }
 
 function onClearSearch() {
@@ -154,16 +168,3 @@ function hideModal() {
   const elModal = document.querySelector('.modal')
   elModal.close()
 }
-
-// DONE: add a new book (MODEL + DOM)
-// function onAddBook(ev) {
-//   ev.preventDefault()
-//   // MODEL
-//   var elNewBook = document.querySelector('input')
-//   const addBookBox = elNewBook.value
-//   addBook(addBookBox)
-
-//   // DOM
-//   elNewBook.value = ''
-//   renderBooks()
-// }
