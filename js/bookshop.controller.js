@@ -91,12 +91,7 @@ function onAddBook() {
 }
 
 function onSearchBook() {
-  const bookName = document.getElementById('bookName').value
-  console.log('Search book:', bookName)
-  const searchRes = findBookByName(`${bookName}`)
-  console.log(searchRes)
-  gBooks = gBooks.filter((book) => book === searchRes)
-  console.log(gBooks)
+  searchBook()
 
   renderBooks()
 }
@@ -104,7 +99,9 @@ function onSearchBook() {
 function onClearSearch() {
   var elNewBook = document.querySelector('input')
   //MODEL
-  gBooks = _createBooks('bookshelf')
+  clearSearch()
+  // gBooks = _createBooks('bookshelf')
+
   // DOM
   elNewBook.value = ''
   renderBooks()

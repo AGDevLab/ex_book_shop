@@ -13,6 +13,15 @@ function getBook(bookId) {
   return gBooks.find((book) => book.id === bookId)
 }
 
+function searchBook() {
+  const bookName = document.getElementById('bookName').value
+  console.log('Search book:', bookName)
+  const searchRes = findBookByName(`${bookName}`)
+  console.log(searchRes)
+  gBooks = gBooks.filter((book) => book === searchRes)
+  console.log(gBooks)
+}
+
 function findBookByName(titleStr) {
   return gBooks.find((book) => book.title === titleStr)
 }
@@ -25,6 +34,10 @@ function addBook(txt) {
   const book = _createBook(txt)
   gBooks.unshift(book)
   _saveBooks()
+}
+
+function clearSearch() {
+  gBooks = _createBooks('bookshelf')
 }
 
 function removeBook(bookId) {
