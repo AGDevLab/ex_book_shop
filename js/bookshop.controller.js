@@ -63,6 +63,14 @@ function onUpdateBook(bookId) {
   renderBooks()
 }
 
+function onInputHandler(event) {
+  console.log('Character typed:', event.target.value)
+}
+
+function onTypeSearch(ev) {
+  console.log(ev)
+}
+
 // DONE: add multiple button support (MODEL + DOM)
 function onSubmitHandler(event) {
   event.preventDefault()
