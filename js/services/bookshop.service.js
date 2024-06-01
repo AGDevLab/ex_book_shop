@@ -22,7 +22,7 @@ var gBooks = _createBooks('bookshelf')
 //     imgUrl: 'submerged.jpg',
 //   },
 // ]
-console.log(_createBooks())
+console.log(gBooks)
 
 function getBooks(bookId) {
   const book = getBook(bookId)
@@ -86,10 +86,10 @@ function _createBook(txt) {
 
 function _createBooks(key) {
   const dataStr = loadFromStorage(key)
-  console.log(dataStr)
+  // console.log(dataStr)
 
   const data = JSON.parse(dataStr)
-  console.log(data)
+  // console.log(data)
   return data
 
   return [
