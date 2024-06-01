@@ -2,6 +2,27 @@
 
 // loadFromStorage('bookshelf')
 var gBooks = _createBooks('bookshelf')
+// var gBooks = [
+//   {
+//     id: 'bg4J78',
+//     title: 'crashingthrough',
+//     price: 120,
+//     imgUrl: 'crashingthrough.jpg',
+//   },
+//   {
+//     id: 'bg4J79',
+//     title: 'shadowdivers',
+//     price: 300,
+//     imgUrl: 'shadowdivers.jpg',
+//   },
+//   {
+//     id: 'bg4J80',
+//     title: 'submerged',
+//     price: 87,
+//     imgUrl: 'submerged.jpg',
+//   },
+// ]
+console.log(_createBooks())
 
 function getBooks(bookId) {
   const book = getBook(bookId)

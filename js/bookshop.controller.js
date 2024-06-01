@@ -2,6 +2,7 @@
 
 function onInit() {
   console.log('onInit')
+  // gBooks = _createBooks('bookshelf')
   renderBooks()
   // clearStorage('bookshelf')
   // saveToStorage('bookshelf', gBooks)
@@ -64,12 +65,14 @@ function onUpdateBook(bookId) {
 }
 
 function onInputHandler(event) {
-  console.log('Character typed:', event.target.value)
+  const typeStr = event.target.value
+  gBooks = gBooks.filter((book) => book.title.startsWith(typeStr))
+  renderBooks()
 }
 
-function onTypeSearch(ev) {
-  console.log(ev)
-}
+// function onTypeSearch(ev) {
+//   console.log(ev)
+// }
 
 // DONE: add multiple button support (MODEL + DOM)
 function onSubmitHandler(event) {
