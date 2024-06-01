@@ -70,7 +70,10 @@ function removeBook(bookId) {
 function updatePrice(bookId) {
   var priceChange = +prompt('please choose a price')
   const idx = gBooks.findIndex((book) => book.id === bookId)
-  gBooks[idx].price = priceChange
+  if (priceChange === 0) {
+    alert('cannot be 0')
+    return null
+  } else gBooks[idx].price = priceChange
   _saveBooks()
 }
 
@@ -92,26 +95,26 @@ function _createBooks(key) {
   // console.log(data)
   return data
 
-  return [
-    {
-      id: 'bg4J78',
-      title: 'crashingthrough',
-      price: 120,
-      imgUrl: 'crashingthrough.jpg',
-    },
-    {
-      id: 'bg4J79',
-      title: 'shadowdivers',
-      price: 300,
-      imgUrl: 'shadowdivers.jpg',
-    },
-    {
-      id: 'bg4J80',
-      title: 'submerged',
-      price: 87,
-      imgUrl: 'submerged.jpg',
-    },
-  ]
+  // return [
+  //   {
+  //     id: 'bg4J78',
+  //     title: 'crashingthrough',
+  //     price: 120,
+  //     imgUrl: 'crashingthrough.jpg',
+  //   },
+  //   {
+  //     id: 'bg4J79',
+  //     title: 'shadowdivers',
+  //     price: 300,
+  //     imgUrl: 'shadowdivers.jpg',
+  //   },
+  //   {
+  //     id: 'bg4J80',
+  //     title: 'submerged',
+  //     price: 87,
+  //     imgUrl: 'submerged.jpg',
+  //   },
+  // ]
 }
 // _saveBooks()
 

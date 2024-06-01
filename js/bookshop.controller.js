@@ -79,6 +79,7 @@ function onRemoveBook(bookId) {
   renderBooks()
 
   // MODAL
+  clearModal()
   onAction('removeBook')
 
   // STATS
@@ -88,13 +89,16 @@ function onRemoveBook(bookId) {
 // DONE: change price of book (MODEL + DOM)
 function onUpdateBook(bookId) {
   // MODEL
-  updatePrice(bookId)
+  const minPrice = updatePrice(bookId)
 
   // DOM
   renderBooks()
 
   // MODAL msg
-  onAction('updateBook')
+  clearModal()
+  if (minPrice) {
+    onAction('updateBook')
+  }
 
   // STATS
   onRenderStats(gBooks)
@@ -155,6 +159,7 @@ function onAddBook() {
   renderBooks()
 
   // MODAL
+  clearModal()
   onAction('addBook')
 
   // STATS
@@ -206,4 +211,11 @@ function onAction(action) {
 function hideModal() {
   const elModal = document.querySelector('.modal')
   elModal.close()
+}
+
+function clearModal() {
+  const elPre = document.querySelector('pre')
+  elPre.innerText = ''
+  const elBookCover = document.querySelector('.modalImg')
+  elBookCover.innerHTML = ''
 }
