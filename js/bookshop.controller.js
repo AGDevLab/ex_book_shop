@@ -77,16 +77,30 @@ function onUpdateBook(bookId) {
 
 function onInputHandler(event) {
   const typeStr = event.target.value.toLowerCase()
-  const matchedBook = gBooks.filter((book) =>
-    book.title.toLowerCase().startsWith(typeStr)
-  )
-  if (matchedBook.length !== 0) {
-    console.log(matchedBook)
-    gBooks = matchedBook
-    console.log(gBooks)
-  }
+  const bookTitles = document.querySelectorAll('.books tr')
 
-  renderBooks()
+  bookTitles.forEach((bookTitle) => {
+    const title = bookTitle.querySelector('.title').textContent.toLowerCase()
+    if (title.startsWith(typeStr)) {
+      bookTitle.style.display = ''
+    } else {
+      bookTitle.style.display = 'none'
+    }
+  })
+}
+
+function onInputHandler(event) {
+  const typeStr = event.target.value.toLowerCase()
+  const bookTitles = document.querySelectorAll('.books tr')
+
+  bookTitles.forEach((bookTitle) => {
+    const title = bookTitle.querySelector('.title').textContent.toLowerCase()
+    if (title.startsWith(typeStr)) {
+      bookTitle.style.display = ''
+    } else {
+      bookTitle.style.display = 'none'
+    }
+  })
 }
 
 // DONE: add multiple button support (MODEL + DOM)
