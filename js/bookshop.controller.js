@@ -52,6 +52,9 @@ function onRemoveBook(bookId) {
   // DOM
   renderBooks()
 
+  // MODAL
+  onAction('removeBook')
+
   // Local Storage
 }
 
@@ -62,6 +65,9 @@ function onUpdateBook(bookId) {
 
   // DOM
   renderBooks()
+
+  // MODAL msg
+  onAction('updateBook')
 }
 
 function onInputHandler(event) {
@@ -103,6 +109,7 @@ function onAddBook() {
   // DOM
   elNewBook.value = ''
   renderBooks()
+  onAction('addBook')
 }
 
 function onSearchBook() {
@@ -120,6 +127,32 @@ function onClearSearch() {
   // DOM
   elNewBook.value = ''
   renderBooks()
+}
+
+function onAction(action) {
+  const elModal = document.querySelector('.modal')
+  const elPre = document.querySelector('pre')
+  switch (action) {
+    case 'addBook':
+      elPre.innerText = 'Book added'
+      console.log('success')
+      break
+    case 'removeBook':
+      elPre.innerText = 'Book removed'
+      console.log('removed')
+      break
+    case 'updateBook':
+      elPre.innerText = 'Price updated'
+      console.log('pricechange')
+      break
+  }
+  elModal.showModal()
+  setTimeout(hideModal, 2000)
+}
+
+function hideModal() {
+  const elModal = document.querySelector('.modal')
+  elModal.close()
 }
 
 // DONE: add a new book (MODEL + DOM)
