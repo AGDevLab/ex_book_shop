@@ -11,9 +11,10 @@
       <h1>Book Shop</h1>
     </header>
     <main>
-      <form onsubmit="onAddBook(event)">
-        <input type="text" placeholder="Book name" />
-        <button>Add a book</button>
+      <form onsubmit="onSubmitHandler(event)">
+        <input type="text" id="bookName" placeholder="Book name" />
+        <button type="submit" id="addButton">Add a book</button>
+        <button type="submit" id="searchButton">Search</button>
       </form>
 
       <div>

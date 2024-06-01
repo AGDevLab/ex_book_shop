@@ -63,10 +63,22 @@ function onUpdateBook(bookId) {
   renderBooks()
 }
 
-// DONE: add a new book (MODEL + DOM)
-function onAddBook(ev) {
-  ev.preventDefault()
-  // MODEL
+// DONE: add multiple button support (MODEL + DOM)
+function onSubmitHandler(event) {
+  event.preventDefault()
+
+  const clickedButtonId = event.submitter.id
+
+  if (clickedButtonId === 'addButton') {
+    onAddBook()
+  } else if (clickedButtonId === 'searchButton') {
+    onSearchBook()
+  }
+}
+
+function onAddBook() {
+  const bookName = document.getElementById('bookName').value
+  console.log('Add book:', bookName)
   var elNewBook = document.querySelector('input')
   const addBookBox = elNewBook.value
   addBook(addBookBox)
@@ -76,19 +88,20 @@ function onAddBook(ev) {
   renderBooks()
 }
 
-// function renderTodos() {
-//   const elTodoList = document.querySelector('.todo-list')
-//   const todos = getTodos(gFilterBy)
+function onSearchBook() {
+  const bookName = document.getElementById('bookName').value
+  console.log('Search book:', bookName)
+}
 
-//   const strHtmls = todos.map(
-//     (todo) => `
-//       <li onclick="onToggleTodo('${todo.id}')">
-//           <span class=${todo.isDone ? 'done' : ''}>${todo.txt}</span>
-//           <button onclick="onShowDetails(event, '${todo.id}')">Details</button>
-//           <button onclick="onRemoveTodo(event, '${todo.id}')">x</button>
-//       </li>`
-//   )
+// DONE: add a new book (MODEL + DOM)
+// function onAddBook(ev) {
+//   ev.preventDefault()
+//   // MODEL
+//   var elNewBook = document.querySelector('input')
+//   const addBookBox = elNewBook.value
+//   addBook(addBookBox)
 
-//   elTodoList.innerHTML = strHtmls.join('')
-//   renderStats()
+//   // DOM
+//   elNewBook.value = ''
+//   renderBooks()
 // }
