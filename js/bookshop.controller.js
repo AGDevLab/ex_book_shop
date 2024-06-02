@@ -118,20 +118,6 @@ function onInputHandler(event) {
   })
 }
 
-function onInputHandler(event) {
-  const typeStr = event.target.value.toLowerCase()
-  const bookTitles = document.querySelectorAll('.books tr')
-
-  bookTitles.forEach((bookTitle) => {
-    const title = bookTitle.querySelector('.title').textContent.toLowerCase()
-    if (title.startsWith(typeStr)) {
-      bookTitle.style.display = ''
-    } else {
-      bookTitle.style.display = 'none'
-    }
-  })
-}
-
 // DONE: add multiple button support (MODEL + DOM)
 function onSubmitHandler(event) {
   event.preventDefault()
